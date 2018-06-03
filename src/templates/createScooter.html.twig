@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+    <h1>
+        Insérer un nouveau bateau!
+    </h1>
+    <form method="POST" action="/createScooter">
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input class="form-control" name="name" id="name" placeholder="Entrez le nom du bateau">
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="type" name="type">
+                <option>50cm3</option>
+                <option>125cm3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fuel">Carburant</label>
+            <input class="form-control" name="fuel" id="fuel" placeholder="Entrez le type de carburant">
+        </div>
+        <div class="form-group">
+            <label for="fabrication_year">Année de fabrication</label>
+            <select class="form-control" name="fabrication_year" id="fabrication_year">
+                {% for i in 2020..1900  %}
+                    <option>{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Insérer">
+    </form>
+{% endblock %}

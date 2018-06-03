@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+    <h1>
+        Liste des {{ (vehicleType == 'boat')? 'bateaux' : 'scooters' }}
+    </h1>
+    <form method="POST" action="/show{{ (vehicleType == 'boat')? 'Boats' : 'Scooters' }}">
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input class="form-control" name="name" id="name" placeholder="Entrez le nom du bateau">
+        </div>
+        <input type="hidden" name="vehicleType" id="vehicleType" value="{{ vehicleType }}">
+        <input class="btn btn-primary" type="submit" value="Search">
+    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Type</th>
+            <th scope="col">Fuel</th>
+            <th scope="col">Année de création</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vehicle in vehicles %}
+            <a href="">
+                <tr style="cursor:pointer;" onclick="document.location = 'show{{ (vehicleType == 'boat')? 'Boat' : 'Scooter' }}/{{ vehicle.id }}';">
+                    <th scope="row">{{ vehicle.id }}</th>
+                    <td>{{ vehicle.name }}</td>
+                    <td>{{ vehicle.type }}</td>
+                    <td>{{ vehicle.fuel }}</td>
+                    <td>{{ vehicle.fabricationYear }}</td>
+                </tr>
+            </a>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

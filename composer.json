@@ -1,0 +1,27 @@
+{
+  "name": "Click&Boat Test",
+  "description": "A quick test for recruitment at Click&Boat",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mosset-Chafik Jérémie",
+      "email": "jeremie.mossetchafik@gmail.com",
+      "role": "Creator / Main Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "symfony/http-foundation": "^4.1",
+    "nikic/fast-route": "^1.3",
+    "rdlowrey/auryn": "^1.4",
+    "twig/twig": "^2.0"
+  },
+  "require-dev": {
+    "filp/whoops": "~2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ClickAndBoat\\": "src/"
+    }
+  }
+}
